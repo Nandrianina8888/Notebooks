@@ -1,0 +1,237 @@
+[buildPlans.iosevka-mono]      # <iosevka-mono> is your plan name
+family = "Iosevka mono"        # Font menu family name
+spacing = "normal"               # Optional; Values: `normal`, `term`, `fontconfig-mono`, or `fixed`
+serifs = "sans"                  # Optional; Values: `sans` or `slab`
+
+###################################################################################################
+# Configure variants
+
+# Optional; Whether to inherit a `ss##` variant
+#[buildPlans.iosevka-mono.variants]
+#inherits = "Iosevka"
+
+# Optional; Configure single character's variant
+[buildPlans.iosevka-mono.variants.design]
+apl-form = 'none'
+cv99=2
+cv98=3
+cv95=1
+cv94=2
+cv93=2
+cv92=2
+cv91=2
+cv90=3
+cv89=2
+cv88=6
+cv87=3
+cv86=1
+cv85=2
+cv84=2
+cv83=3
+cv82=5
+cv81=2
+cv80=2
+cv79=3
+cv78=4
+cv77=3
+cv76=1
+cv75=3
+cv74=2
+cv73=2
+cv72=7
+cv71=8
+VXAB=2
+VXAC=2
+cv50=1
+cv49=6
+cv48=1
+cv47=6
+cv46=1
+cv45=2
+cv44=2
+cv43=1
+cv42=17
+cv41=2
+cv40=2
+cv39=3
+cv38=5
+cv37=1
+cv36=1
+cv35=6
+cv34=1
+cv33=1
+cv32=2
+cv31=12
+cv30=1
+cv29=2
+cv28=1
+cv27=2
+cv26=3
+cv25=1
+cv24=1
+cv23=1
+cv22=6
+cv21=1
+cv20=2
+cv19=1
+cv18=1
+cv17=4
+cv16=4
+cv15=1
+cv14=2
+cv13=1
+cv12=1
+cv11=3
+cv10=2
+cv09=1
+cv08=1
+cv07=5
+cv06=1
+cv05=1
+cv04=2
+cv03=1
+cv02=1
+cv01=2
+
+[buildPlans.iosevka-mono.variants.italic]
+cv25=25
+cv30=2
+cv31=13
+cv32=9
+cv34=12
+cv35=8
+cv36=3
+cv37=12
+cv42=17
+cv44=3
+cv45=6
+cv46=6
+cv47=7
+cv48=7
+cv50=25
+# End variant section
+###################################################################################################
+
+###################################################################################################
+# Configure ligations
+
+[buildPlans.iosevka-mono.ligations]
+inherits = "default-calt"   # Optional; inherits an existing ligation set
+disables = []               # Optional; disable specific ligation groups, overrides inherited ligation set
+enables  = ["dlig"]               # Optional; enable specific ligation groups, overrides inherited ligation set
+
+# End ligation section
+###################################################################################################
+
+
+###################################################################################################
+# Override default building weights
+# When buildPlans.<plan name>.weights is absent, all weights would built and mapped to
+# default values.
+# IMPORTANT : Currently "menu" and "css" property only support numbers between 0 and 1000.
+#             and "shape" properly only supports number between 100 and 900 (inclusive).
+#             If you decide to use iosevka-mono weights you have to define all the weights you
+#             plan to use otherwise they will not be built.
+[buildPlans.iosevka-mono.weights.regular]
+shape = 400  # Weight for glyph shapes.
+menu  = 400  # Weight for the font's names.
+css   = 400  # Weight for webfont CSS.
+
+[buildPlans.iosevka-mono.weights.bold]
+shape = 700
+menu  = 700
+css   = 700
+
+# End weight section
+###################################################################################################
+
+###################################################################################################
+# Override default building slope sets
+# When this section is absent, all slopes would be built.
+
+[buildPlans.iosevka-mono.slopes.upright]
+angle = 0             # Angle in degrees. Valid range [0, 15]
+shape = "upright"     # Slope grade used for shape selection.  `upright` | `oblique` | `italic`
+menu  = "upright"     # Slope grade used for naming.           `upright` | `oblique` | `italic`
+css   = "normal"      # Slope grade used for webfont CSS.      `normal`  | `oblique` | `italic`
+
+[buildPlans.iosevka-mono.slopes.oblique]
+angle = 9.4
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.iosevka-mono.slopes.italic]
+angle = 9.4
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+# End slope section
+###################################################################################################
+
+###################################################################################################
+# Override default building widths
+# When buildPlans.<plan name>.widths is absent, all widths would built and mapped to
+# default values.
+# IMPORTANT : Currently "shape" property only supports numbers between 434 and 664 (inclusive),
+#             while "menu" only supports integers between 1 and 9 (inclusive).
+#             The "shape" parameter specifies the unit width, measured in 1/1000 em. The glyphs'
+#             width are equal to, or a simple multiple of the unit width.
+#             If you decide to use custom widths you have to define all the widths you plan to use,
+#             otherwise they will not be built.
+
+[buildPlans.iosevka-mono.widths.normal]
+shape = 500        # Unit Width, measured in 1/1000 em.
+menu  = 5          # Width grade for the font's names.
+css   = "normal"   # "font-stretch' property of webfont CSS.
+
+[buildPlans.iosevka-mono.widths.extended]
+shape = 600
+menu  = 7
+css   = "expanded"
+
+# End width section
+###################################################################################################
+
+###################################################################################################
+# Character Exclusion
+# Specify character ranges in the section below to exclude certain characters from the font being
+# built. Remove this section when this feature is not needed.
+
+[buildPlans.iosevka-mono.exclude-chars]
+ranges = [[10003, 10008]]
+
+# End character exclusion
+###################################################################################################
+
+###################################################################################################
+# Compatibility Ligatures
+# Certain applications like Emacs does not support proper programming liagtures provided by
+# OpenType, but can support ligatures provided by PUA codepoints. Therefore you can edit the
+# following section to build PUA characters that are generated from the OpenType ligatures.
+# Remove this section when compatibility ligatures are not needed.
+
+[[buildPlans.iosevka-mono.compatibility-ligatures]]
+unicode = 57600 # 0xE100
+featureTag = 'calt'
+sequence = '<*>'
+
+# End compatibility ligatures section
+###################################################################################################
+
+###################################################################################################
+# Metric overrides
+# Certain metrics like line height (leading) could be overridden in your build plan file.
+# Edit the values to change the metrics. Remove this section when overriding is not needed.
+
+[buildPlans.iosevka-mono.metric-override]
+leading = 1250
+winMetricAscenderPad = 0
+winMetricDescenderPad = 0
+powerlineScaleY = 1
+powerlineScaleX = 1
+powerlineShiftY = 0
+powerlineShiftX = 0
+
+# End metric override section
+###################################################################################################

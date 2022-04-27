@@ -1,0 +1,250 @@
+[buildPlans.iosevka-custom]      # <iosevka-custom> is your plan name
+family = "Iosevka Custom"        # Font menu family name
+spacing = "term"               # Optional; Values: `normal`, `term`, `fontconfig-mono`, or `fixed`
+serifs = "sans"                  # Optional; Values: `sans` or `slab`
+
+#webfont-formats = ['ttf', 'woff2']
+
+###################################################################################################
+# Configure variants
+
+# Optional; Whether to inherit a `ss##` variant
+[buildPlans.iosevka-custom.variants]
+inherits = "ss09"
+
+# Optional; Configure single character's variant
+[buildPlans.iosevka-custom.variants.design]
+apl-form = 'none'
+cv01=2
+cv02=1
+cv03=1
+cv04=6
+cv05=1
+cv06=1
+cv07=5
+cv08=1
+cv09=3
+cv10=2
+cv11=3
+cv12=1
+cv13=1
+cv14=2
+cv15=1
+cv16=4
+cv17=2
+cv18=1
+cv19=1
+cv20=2
+cv21=2
+cv22=6
+cv23=2
+cv24=2
+cv25=4
+cv26=3
+cv27=2
+cv28=1
+cv29=2
+cv30=1
+cv31=17
+cv32=2
+cv33=1
+cv34=4
+cv35=6
+cv36=2
+cv37=1
+cv38=9
+cv39=3
+cv40=2
+cv41=2
+cv42=5
+cv43=1
+cv44=2
+cv45=2
+cv46=2
+cv47=6
+cv48=2
+cv49=4
+cv50=4
+cv71=7
+cv72=2
+cv73=1
+cv74=1
+cv75=4
+cv76=1
+cv77=3
+cv78=3
+cv79=1
+cv80=3
+cv81=2
+cv82=2
+cv84=2
+cv93=1
+cv94=2
+cv98=3
+cv99=2
+
+# Optional; Configure single character's variant for Italic only; Overrides [design]
+[buildPlans.iosevka-custom.variants.italic]
+a = "single-storey-serifless"
+f = "flat-hook-diagonal-tailed"
+i = "serifed-diagonal-tailed"
+j = "diagonal-tailed-serifed"
+k = "diagonal-tailed-cursive-serifless"
+l = "serifed-diagonal-tailed"
+r = "hookless-top-serifed"
+t = "diagonal-tailed"
+v = "cursive-serifed"
+w = "cursive"
+x = "cursive"
+y = "cursive"
+z = "cursive"
+long-s = "flat-hook-tailed"
+cyrl-capital-u = "cursive-flat-hook"
+ampersand = "closed"
+
+# End variant section
+###################################################################################################
+
+###################################################################################################
+# Configure ligations
+
+[buildPlans.iosevka-custom.ligations]
+inherits = "default-calt"   # Optional; inherits an existing ligation set
+disables = []               # Optional; disable specific ligation groups, overrides inherited ligation set
+enables  = ["dlig"]               # Optional; enable specific ligation groups, overrides inherited ligation set
+
+# End ligation section
+###################################################################################################
+
+
+###################################################################################################
+# Override default building weights
+# When buildPlans.<plan name>.weights is absent, all weights would built and mapped to
+# default values.
+# IMPORTANT : Currently "menu" and "css" property only support numbers between 0 and 1000.
+#             and "shape" properly only supports number between 100 and 900 (inclusive).
+#             If you decide to use custom weights you have to define all the weights you
+#             plan to use otherwise they will not be built.
+[buildPlans.iosevka-custom.weights.regular]
+shape = 400  # Weight for glyph shapes.
+menu  = 400  # Weight for the font's names.
+css   = 400  # Weight for webfont CSS.
+
+[buildPlans.iosevka-custom.weights.bold]
+shape = 700
+menu  = 700
+css   = 700
+
+[buildPlans.iosevka-custom.weights.medium]
+shape = 500
+menu  = 500
+css   = 500
+
+[buildPlans.iosevka-custom.weights.thin]
+shape = 100
+menu  = 100
+css   = 100
+
+[buildPlans.iosevka-custom.weights.extralight]
+shape = 200
+menu  = 200
+css   = 200
+
+[buildPlans.iosevka-custom.weights.light]
+shape = 300
+menu  = 300
+css   = 300
+
+# End weight section
+###################################################################################################
+
+###################################################################################################
+# Override default building slope sets
+# When this section is absent, all slopes would be built.
+
+[buildPlans.iosevka-custom.slopes.upright]
+angle = 0             # Angle in degrees. Valid range [0, 15]
+shape = "upright"     # Slope grade used for shape selection.  `upright` | `oblique` | `italic`
+menu  = "upright"     # Slope grade used for naming.           `upright` | `oblique` | `italic`
+css   = "normal"      # Slope grade used for webfont CSS.      `normal`  | `oblique` | `italic`
+
+[buildPlans.iosevka-custom.slopes.oblique]
+angle = 9.4
+shape = "oblique"
+menu  = "oblique"
+css   = "oblique"
+
+[buildPlans.iosevka-custom.slopes.italic]
+angle = 9.4
+shape = "italic"
+menu  = "italic"
+css   = "italic"
+# End slope section
+###################################################################################################
+
+###################################################################################################
+# Override default building widths
+# When buildPlans.<plan name>.widths is absent, all widths would built and mapped to
+# default values.
+# IMPORTANT : Currently "shape" property only supports numbers between 434 and 664 (inclusive),
+#             while "menu" only supports integers between 1 and 9 (inclusive).
+#             The "shape" parameter specifies the unit width, measured in 1/1000 em. The glyphs'
+#             width are equal to, or a simple multiple of the unit width.
+#             If you decide to use custom widths you have to define all the widths you plan to use,
+#             otherwise they will not be built.
+
+[buildPlans.iosevka-custom.widths.normal]
+shape = 500        # Unit Width, measured in 1/1000 em.
+menu  = 5          # Width grade for the font's names.
+css   = "normal"   # "font-stretch' property of webfont CSS.
+
+[buildPlans.iosevka-custom.widths.extended]
+shape = 600
+menu  = 7
+css   = "expanded"
+
+# End width section
+###################################################################################################
+
+###################################################################################################
+# Character Exclusion
+# Specify character ranges in the section below to exclude certain characters from the font being
+# built. Remove this section when this feature is not needed.
+
+[buildPlans.iosevka-custom.exclude-chars]
+ranges = [[10003, 10008]]
+
+# End character exclusion
+###################################################################################################
+
+###################################################################################################
+# Compatibility Ligatures
+# Certain applications like Emacs does not support proper programming liagtures provided by
+# OpenType, but can support ligatures provided by PUA codepoints. Therefore you can edit the
+# following section to build PUA characters that are generated from the OpenType ligatures.
+# Remove this section when compatibility ligatures are not needed.
+
+[[buildPlans.iosevka-custom.compatibility-ligatures]]
+unicode = 57600 # 0xE100
+featureTag = 'calt'
+sequence = '<*>'
+
+# End compatibility ligatures section
+###################################################################################################
+
+###################################################################################################
+# Metric overrides
+# Certain metrics like line height (leading) could be overridden in your build plan file.
+# Edit the values to change the metrics. Remove this section when overriding is not needed.
+
+[buildPlans.iosevka-custom.metric-override]
+leading = 1250
+winMetricAscenderPad = 0
+winMetricDescenderPad = 0
+powerlineScaleY = 1
+powerlineScaleX = 1
+powerlineShiftY = 0
+powerlineShiftX = 0
+
+# End metric override section
+###################################################################################################
